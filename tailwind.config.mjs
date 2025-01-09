@@ -7,9 +7,10 @@ export default {
   ],
   theme: {
     extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
+      fontFamily: {
+        royalsignage: ['RoyalSignage', 'sans-serif'],
+        din: ['DINCondensed', 'sans-serif'],
+        times: ['TimesSansSerif', 'serif'],  
       },
     },
   },
