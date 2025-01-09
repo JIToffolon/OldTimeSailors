@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { memo } from "react";
 import buyTickets from "../../public/assets/buytickets.webp";
 import recuadroVideo from "../../public/assets/family/recuadrovideo.webp";
 import fotoFamily1 from "../../public/assets/family/fotoFamily1.webp";
@@ -12,7 +13,59 @@ import dibujo from "../../public/assets/family/dibujo.webp";
 import { FaCalendar, FaClock } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
- const MobileS = () => {
+const VideoComponent = memo(() => (
+  <div className="absolute left-1 -top-2 w-[228px] h-[110px]">
+    <Image
+      src={recuadroVideo}
+      alt="Video frame"
+      width={228}
+      height={125}
+      quality={50}
+      className="transform-gpu w-[228px] h-[125px]"
+      priority={true}
+      placeholder="blur"
+      sizes="(max-width: 375px) 228px"
+    />
+
+    <div className="absolute inset-0 flex items-center justify-center">
+      <video
+        controls
+        preload="none"
+        poster={"/assets/thumbnailvideo.webp"}
+        className="w-[80%] h-[90%] mt-3 -ml-5 object-cover border-[#1b344a] border-[6px] rounded-sm z-20 shadow-gray-500 shadow-[2px_-2px_5px_rgba(0,0,0,0.3)]
+                    hover:opacity-100 [&::-webkit-media-controls]:opacity-0 hover:[&::-webkit-media-controls]:opacity-100 [&::-webkit-media-controls]:transition-opacity"
+      >
+        <source src="/assets/family/video.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+));
+
+const EventDescription = memo(() => (
+  <div className="text-[12px] pb-5 text-[#1b344a]">
+    <p className="leading-relaxed [&:not(:last-child)]:mb-0">
+      You are invited to board the Sailorette and join the plentiful crew, 'The
+      Old Time Sailors', for a night of footstomping, dancing and singing!
+    </p>
+    <p className="leading-relaxed [&:not(:last-child)]:mb-0">
+      You will be sailing back to the 19th century for an immersive experience
+      of traditional seafaring music performed in a way you have never seen
+      before.
+    </p>
+    <p className="leading-relaxed [&:not(:last-child)]:mb-0">
+      The Motley Crew and their plethora of traditional and eclectic instruments
+      will take you back to the time of clashing tankards, and drunken
+      debauchery. Sing and dance along like a drunken sailor as the band perform
+      centuries old folk and shanty songs.
+    </p>
+    <p className="leading-relaxed">
+      Fancy dress is encouraged, so pull out your best seafaring garments me
+      hearties and join the festivities.
+    </p>
+  </div>
+));
+
+const MobileS = () => {
   return (
     <>
       <div className="relative -bottom-[10px]">
@@ -81,6 +134,7 @@ import { FaLocationDot } from "react-icons/fa6";
                       alt="Buy Tickets"
                       className="w-[100px] h-[40px] cursor-pointer"
                       priority={true}
+                      quality={80}
                     />
                   </div>
                   <div className="absolute inset-0 flex flex-col items-start justify-center text-amber-100">
@@ -91,30 +145,7 @@ import { FaLocationDot } from "react-icons/fa6";
                     </Link>
                   </div>
                 </div>
-              </div>
-
-              <div className="text-[12px] pb-5 text-[#1b344a]">
-                <p className="leading-relaxed [&:not(:last-child)]:mb-0">
-                  You are invited to board the Sailorette and join the plentiful
-                  crew, 'The Old Time Sailors', for a night of footstomping,
-                  dancing and singing!
-                </p>
-                <p className="leading-relaxed [&:not(:last-child)]:mb-0">
-                  You will be sailing back to the 19th century for an immersive
-                  experience of traditional seafaring music performed in a way
-                  you have never seen before.
-                </p>
-                <p className="leading-relaxed [&:not(:last-child)]:mb-0">
-                  The Motley Crew and their plethora of traditional and eclectic
-                  instruments will take you back to the time of clashing
-                  tankards, and drunken debauchery. Sing and dance along like a
-                  drunken sailor as the band perform centuries old folk and
-                  shanty songs.
-                </p>
-                <p className="leading-relaxed">
-                  Fancy dress is encouraged, so pull out your best seafaring
-                  garments me hearties and join the festivities.
-                </p>
+                <EventDescription />
               </div>
             </div>
           </div>
@@ -123,38 +154,17 @@ import { FaLocationDot } from "react-icons/fa6";
           <div className="w-full h-[400px] relative -top-5 -left-2">
             <div className="relative h-[200px]">
               {/* Video */}
-              <div className="absolute left-1 -top-2 w-[228px] h-[110px]">
-                <Image
-                  src={recuadroVideo}
-                  alt="Video frame"
-                  width={200}
-                  height={110}
-                  quality={75}
-                  className="transform-gpu w-[228px] h-[125px]"
-                  priority={true}
-                  loading="eager"
-                />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <video
-                    controls
-                    preload="none"
-                    poster={"/assets/thumbnailvideo.webp"}
-                    className="w-[80%] h-[90%] mt-3 -ml-5 object-cover border-[#1b344a] border-[6px] rounded-sm z-20 shadow-gray-500 shadow-[2px_-2px_5px_rgba(0,0,0,0.3)]
-                    hover:opacity-100 [&::-webkit-media-controls]:opacity-0 hover:[&::-webkit-media-controls]:opacity-100 [&::-webkit-media-controls]:transition-opacity"
-                  >
-                    <source src="/assets/family/video.mp4" type="video/mp4" />
-                  </video>
-                </div>
-              </div>
+              <VideoComponent />
 
               {/* Photo 2 */}
               <div className="absolute -right-1 -top-4 w-[130px] h-[130px] z-10">
                 <Image
                   src={fotoFamily2}
                   alt="Musicians"
-                  width={140}
-                  height={140}
-                  className="w-full shadow-gray-500 shadow-[3px_3px_3px_rgba(0,0,0,0.3)]"
+                  width={130}
+                  height={130}
+                  quality={75}
+                  className="w-[130px] h-[130px] shadow-gray-500 shadow-[3px_3px_3px_rgba(0,0,0,0.3)]"
                   loading="lazy"
                 />
               </div>
@@ -167,8 +177,9 @@ import { FaLocationDot } from "react-icons/fa6";
                   src={fotoFamily1}
                   alt="Performance"
                   width={145}
-                  height={118}
-                  className="z-10 shadow-gray-500 shadow-[0px_3px_3px_rgba(0,0,0,0.3)]"
+                  height={145}
+                  quality={75}
+                  className="w-[145px] h-[145px] z-10 shadow-gray-500 shadow-[0px_3px_3px_rgba(0,0,0,0.3)]"
                   loading="lazy"
                 />
                 <div className="relative">
@@ -176,8 +187,9 @@ import { FaLocationDot } from "react-icons/fa6";
                     src={flecha}
                     alt="More gigs"
                     width={145}
-                    height={110}
-                    className="absolute right-8 -bottom-12 h-[40px]"
+                    height={40}
+                    quality={75}
+                    className="absolute right-8 -bottom-12 w-[145px] h-[40px]"
                     loading="lazy"
                   />
                   <Link href={"/"}>
@@ -188,13 +200,14 @@ import { FaLocationDot } from "react-icons/fa6";
                 </div>
               </div>
 
-              <div className="absolute -right-1 -top-11 w-[156px] h-[154px] z-10">
+              <div className="absolute -right-1 -top-11 w-[156px] h-[156px] z-10">
                 <Image
                   src={fotoFamily3}
                   alt="Crowd"
-                  width={200}
-                  height={200}
-                  className="w-full h-auto shadow-[5px_0px_5px_rgba(0,0,0,0.3)]"
+                  width={156}
+                  height={154}
+                  quality={75}
+                  className="w-[156px] h-[156px] shadow-[5px_0px_5px_rgba(0,0,0,0.3)]"
                   loading="lazy"
                 />
               </div>
@@ -216,8 +229,9 @@ import { FaLocationDot } from "react-icons/fa6";
                     src={ancla}
                     alt="Anchor"
                     width={22}
-                    height={22}
-                    className="-ml-[5px] rotate-12"
+                    height={26}
+                    quality={75}
+                    className="w-[22px] h-[26px] -ml-[5px] rotate-12"
                     loading="lazy"
                   />
                   <div className="-ml-[40px] mt-[19px] leading-none tracking-widest font-bold font-times">
@@ -232,8 +246,9 @@ import { FaLocationDot } from "react-icons/fa6";
               src={dibujo}
               alt="Background drawing"
               width={150}
-              height={100}
-              className="absolute bottom-[18px] -right-2 z-10"
+              height={110}
+              quality={75}
+              className="w-[150px] h-[110px] absolute bottom-[18px] -right-2 z-10"
               loading="lazy"
             />
           </div>

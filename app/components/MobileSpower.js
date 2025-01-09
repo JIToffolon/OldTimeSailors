@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { memo } from "react";
 import buyTickets from "../../public/assets/buytickets.webp";
 import recuadroVideo from "../../public/assets/power/recuadrovideo.webp";
 import power1 from "../../public/assets/power/power1.webp";
@@ -11,7 +12,22 @@ import dibujo from "../../public/assets/power/dibujo.webp";
 import { FaCalendar, FaClock } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
 
- const MobileSpower = () => {
+const EventDescription = memo(() => (
+  <p className="text-[12px] pb-5 text-[#e9ddc7] text-pretty" translate="no">
+    Heave ho and up she rises! Cast aside your compass, throw your maps
+    overboard and join the mutinous crew of The Old Time Sailor as they set sail
+    for the wild uninhabited islands of Irish Punk, Shanty Punk, Polka Rock,
+    Romani Punk, Dark Cabaret, and Twisted Circus! 'Rock and row' with our 21
+    strong crew of rebellious musicians as the navigate a voyage through the
+    thrashing seas of Hevay Metal and Hard Rock on a genre bending adventure
+    into uncharted waters, join in the Wall of Death and thrash it out with your
+    shipmates. Get ready for vigorous vocals, emphatic energy, mosh pits and
+    head banging: we play it live and we play it loud, but as always with The
+    Old Time Sailors... be prepared to expect the unexpected!
+  </p>
+));
+
+const MobileSpower = () => {
   return (
     <>
       <div className="relative -bottom-[10px]">
@@ -79,29 +95,21 @@ import { FaLocationDot } from "react-icons/fa6";
                       src={buyTickets}
                       alt="Buy Tickets"
                       className="w-[100px] h-[40px] cursor-pointer"
+                      width={100}
+                      height={40}
                       priority={true}
                     />
                   </div>
                   <div className="absolute inset-0 flex flex-col items-start justify-center text-amber-100">
-                    <h3 className="ml-5 text-[10px] font-times">BUY TICKETS</h3>
+                    <Link href={"/"}>
+                      <h3 className="ml-5 text-[10px] font-times">
+                        BUY TICKETS
+                      </h3>
+                    </Link>
                   </div>
                 </div>
+                  <EventDescription />
               </div>
-
-              <p className="text-[12px] pb-5 text-[#e9ddc7]">
-                Heave ho and up she rises! Cast aside your compass, throw your
-                maps overboard and join the mutinous crew of The Old Time Sailor
-                as they set sail for the wild uninhabited islands of Irish Punk,
-                Shanty Punk, Polka Rock, Romani Punk, Dark Cabaret, and Twisted
-                Circus! 'Rock and row' with our 21 strong crew of rebellious
-                musicians as the navigate a voyage through the thrashing seas of
-                Hevay Metal and Hard Rock on a genre bending adventure into
-                uncharted waters, join in the Wall of Death and thrash it out
-                with your shipmates. Get ready for vigorous vocals, emphatic
-                energy, mosh pits and head banging: we play it live and we play
-                it loud, but as always with The Old Time Sailors... be prepared
-                to expect the unexpected!
-              </p>
             </div>
           </div>
 
@@ -130,8 +138,8 @@ import { FaLocationDot } from "react-icons/fa6";
                     src={recuadroVideo}
                     alt="Video frame"
                     width={215}
-                    height={200}
-                    className="h-[166px]"
+                    height={166}
+                    className="w-[215px] h-[166px]"
                     priority={true}
                   />
                 </div>
@@ -143,8 +151,8 @@ import { FaLocationDot } from "react-icons/fa6";
                   src={power2}
                   alt="Musicians"
                   width={140}
-                  height={140}
-                  className="w-full"
+                  height={130}
+                  className="w-[140px] h-[130px]"
                   loading="lazy"
                 />
               </div>
@@ -157,8 +165,8 @@ import { FaLocationDot } from "react-icons/fa6";
                   src={power1}
                   alt="Performance"
                   width={145}
-                  height={118}
-                  className="z-10 "
+                  height={145}
+                  className="w-[145px] h-[145px] z-10 "
                   loading="lazy"
                 />
                 <div className="relative">
@@ -166,8 +174,8 @@ import { FaLocationDot } from "react-icons/fa6";
                     src={flecha}
                     alt="More gigs"
                     width={145}
-                    height={110}
-                    className="absolute right-8 -bottom-12 h-[40px]"
+                    height={40}
+                    className="w-[145px] h-[40px] absolute right-8 -bottom-12 "
                     loading="lazy"
                   />
                   <p className="absolute inset-0 font-times font-bold text-[#1b344a] left-6 top-4 text-[15px]">
@@ -212,8 +220,8 @@ import { FaLocationDot } from "react-icons/fa6";
               src={dibujo}
               alt="Background drawing"
               width={165}
-              height={100}
-              className="absolute -bottom-[5px] -right-[16px] z-20"
+              height={145}
+              className="w-[165px] h-[145px] absolute -bottom-[5px] -right-[16px] z-20"
               loading="lazy"
             />
           </div>

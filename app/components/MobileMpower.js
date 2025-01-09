@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import buyTickets from "../../public/assets/buytickets.webp";
@@ -10,6 +10,21 @@ import flecha from "../../public/assets/power/flecha.webp";
 import dibujo from "../../public/assets/power/dibujo.webp";
 import { FaCalendar, FaClock } from "react-icons/fa";
 import { FaLocationDot } from "react-icons/fa6";
+
+const EventDescription = memo(() => (
+  <p className="text-sm pb-5 text-[#e9ddc7] text-pretty" translate="no">
+    Heave ho and up she rises! Cast aside your compass, throw your maps
+    overboard and join the mutinous crew of The Old Time Sailor as they set sail
+    for the wild uninhabited islands of Irish Punk, Shanty Punk, Polka Rock,
+    Romani Punk, Dark Cabaret, and Twisted Circus! 'Rock and row' with our 21
+    strong crew of rebellious musicians as the navigate a voyage through the
+    thrashing seas of Hevay Metal and Hard Rock on a genre bending adventure
+    into uncharted waters, join in the Wall of Death and thrash it out with your
+    shipmates. Get ready for vigorous vocals, emphatic energy, mosh pits and
+    head banging: we play it live and we play it loud, but as always with The
+    Old Time Sailors... be prepared to expect the unexpected!
+  </p>
+));
 
 const MobileMpower = () => (
   <>
@@ -74,6 +89,8 @@ const MobileMpower = () => (
                 src={buyTickets}
                 alt="Buy Tickets"
                 className="w-[130px] h-[40px] cursor-pointer"
+                width={130}
+                height={40}
                 priority={true}
               />
             </div>
@@ -83,21 +100,8 @@ const MobileMpower = () => (
               </Link>
             </div>
           </div>
+              <EventDescription/>
         </div>
-
-        <p className="text-sm pb-5 text-[#e9ddc7]">
-          Heave ho and up she rises! Cast aside your compass, throw your maps
-          overboard and join the mutinous crew of The Old Time Sailor as they
-          set sail for the wild uninhabited islands of Irish Punk, Shanty Punk,
-          Polka Rock, Romani Punk, Dark Cabaret, and Twisted Circus! 'Rock and
-          row' with our 21 strong crew of rebellious musicians as the navigate a
-          voyage through the thrashing seas of Hevay Metal and Hard Rock on a
-          genre bending adventure into uncharted waters, join in the Wall of
-          Death and thrash it out with your shipmates. Get ready for vigorous
-          vocals, emphatic energy, mosh pits and head banging: we play it live
-          and we play it loud, but as always with The Old Time Sailors... be
-          prepared to expect the unexpected!
-        </p>
       </div>
     </div>
 
@@ -126,8 +130,8 @@ const MobileMpower = () => (
               src={recuadroVideo}
               alt="Video frame"
               width={255}
-              height={200}
-              className="h-[196px]"
+              height={196}
+              className="w-[255px] h-[196px]"
               priority={true}
             />
           </div>
@@ -138,9 +142,9 @@ const MobileMpower = () => (
           <Image
             src={power2}
             alt="Musicians"
-            width={140}
-            height={140}
-            className="w-full"
+            width={180}
+            height={160}
+            className="w-[180px] h-[160px]"
             loading="lazy"
           />
         </div>
@@ -153,8 +157,8 @@ const MobileMpower = () => (
             src={power1}
             alt="Performance"
             width={160}
-            height={120}
-            className="z-10"
+            height={160}
+            className="w-[160px] h-[160px] z-10"
             loading="lazy"
           />
           <div className="relative">
@@ -162,8 +166,8 @@ const MobileMpower = () => (
               src={flecha}
               alt="More gigs"
               width={160}
-              height={170}
-              className="absolute right-[40px] -bottom-[60px]"
+              height={50}
+              className="w-[160px] h-[50px] absolute right-[40px] -bottom-[60px]"
               loading="lazy"
             />
             <p className="absolute inset-0 font-times font-bold text-[#1b344a] left-[22px] top-[20px] text-[20px]">
@@ -208,8 +212,8 @@ const MobileMpower = () => (
         src={dibujo}
         alt="Background drawing"
         width={170}
-        height={100}
-        className="absolute -bottom-[63px] -right-[18px] z-20"
+        height={150}
+        className="w-[170px] h-[150px] absolute -bottom-[63px] -right-[18px] z-20"
         loading="lazy"
       />
     </div>
